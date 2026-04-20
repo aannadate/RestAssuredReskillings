@@ -8,6 +8,8 @@ import static io.restassured.RestAssured.*;
 import files.PayloadsExamples;
 import static org.hamcrest.Matchers.*;
 
+import org.junit.Assert;
+
 public class DemoTest {
 
 	public static void main(String[] args) {
@@ -35,11 +37,13 @@ public class DemoTest {
 
 		// get address
 
-		String getPlaceResponse = given().log().all().queryParam("place_id", placeId).queryParam("key", "qaclick123").when()
-				.get("maps/api/place/get/json").then().assertThat().log().all().statusCode(200).extract().response().asString();
-		
+		String getPlaceResponse = given().log().all().queryParam("place_id", placeId).queryParam("key", "qaclick123")
+				.when().get("maps/api/place/get/json").then().assertThat().log().all().statusCode(200).extract()
+				.response().asString();
+
 		JsonPath js1 = new JsonPath(getPlaceResponse);
-		
+		String actualAddress = js1.getString("address");
+		Assert.assertEquals(actualAddress, "Near Old balaji temple");
 
 	}
 
