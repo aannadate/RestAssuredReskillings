@@ -15,7 +15,7 @@ public class PayloadsExamples {
 	public static String updatePlace(String placeID) {
 		return "{\r\n"
 				+ "    \"place_id\": \" " + placeID +" \",\r\n"
-				+ "    \"address\": \"70 Summer walk, USA\",\r\n"
+				+ "    \"address\": \"70 Summer walk,USA\",\r\n"
 				+ "    \"key\": \"qaclick123\"\r\n"
 				+ "}";
 	}
