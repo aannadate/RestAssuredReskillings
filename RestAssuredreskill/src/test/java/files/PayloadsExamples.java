@@ -47,4 +47,12 @@ public class PayloadsExamples {
 				+ "}";
 		
 	}
+	public static String addBookPayload(String isbn, String aisle) {
+		return "{\r\n"
+				+ "    \"name\": \"Learn relationships management\",\r\n"
+				+ "    \"isbn\": \""+ isbn + "\",\r\n"
+				+ "    \"aisle\": \""+aisle+ "\",\r\n"
+				+ "    \"author\": \"rajashri\"\r\n"
+				+ "}";
+	}
 }
