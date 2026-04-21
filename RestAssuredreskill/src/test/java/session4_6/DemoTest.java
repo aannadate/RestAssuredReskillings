@@ -6,7 +6,7 @@ import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.*;
 
 import files.PayloadsExamples;
-import files.ReuableMethods;
+import files.Reusable;
 
 import static org.hamcrest.Matchers.*;
 
@@ -43,7 +43,7 @@ public class DemoTest {
 				.when().get("maps/api/place/get/json").then().assertThat().log().all().statusCode(200).extract()
 				.response().asString();
 
-		JsonPath js1 = ReuableMethods.rawToJson(getPlaceResponse);
+		JsonPath js1 = Reusable.rawToJson(getPlaceResponse);
 		String actualAddress = js1.getString("address");
 		Assert.assertEquals(actualAddress, "Near Old balaji temple");
 
